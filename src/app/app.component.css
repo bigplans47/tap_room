@@ -1,3 +1,11 @@
 input {
   width: 100px;
 }
+
+#patron {
+  float: right
+}
+
+#employee {
+  float: right
+}

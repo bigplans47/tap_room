@@ -12,6 +12,7 @@ export class AppComponent {
   price: number;
   alcoholContent: number;
   editingKeg: boolean = false;
+  employeeDisplay: boolean = true;
 
   singleKeg2: string = 'test'
   kegs: Keg[] = [
@@ -41,5 +42,9 @@ export class AppComponent {
 
   underTen(kegToCheck) {
     return kegToCheck.pints < 10;
+  }
+
+  employeeDisplaySet() {
+    this.employeeDisplay = !this.employeeDisplay
   }
 }
