@@ -7,11 +7,11 @@ import { Keg } from './models/keg.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'app';
   name: string;
   brand: string;
   price: number;
   alcoholContent: number;
+  editingKeg: boolean = false;
 
   singleKeg2: string = 'test'
   kegs: Keg[] = [
@@ -20,5 +20,26 @@ export class AppComponent {
   ]
   addKeg() {
     this.kegs.push(new Keg(this.name,this.brand,this.price,this.alcoholContent));
+    this.editingKeg = !this.editingKeg;
+  }
+
+  removeKeg(kegToRemove) {
+    this.kegs = this.kegs.filter(keg => keg != kegToRemove);
+  }
+
+  serve(keg) {
+    keg.pints-=1;
+    // keg.pints = keg.pints -1;
+  }
+  toggleEdit() {
+    this.name = null;
+    this.brand = null;
+    this.price = null;
+    this.alcoholContent = null;
+    this.editingKeg = !this.editingKeg;
+  }
+
+  underTen(kegToCheck) {
+    return kegToCheck.pints < 10;
   }
 }

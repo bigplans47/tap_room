@@ -37,7 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 -EMPLOYEE: form for new kegs
 -EMPLOYEE: edit kegs properties after the fact
 -EMPLOYEE: display pints left in a keg (out of 124)
--EMPLOYEE decrement available kegs
+-EMPLOYEE: remove kegs
 -EMPLOYEE list low pints (less than 10)
 -PATRON: color code keg prices, style
 -PATRON: display strong beers diff than weak beers

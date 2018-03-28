@@ -15,13 +15,19 @@
     <td><input [(ngModel)]="singleKeg.price" type="text" name="price"></td>
     <td><input [(ngModel)]="singleKeg.alcoholContent" type="text" name="alcoholContent"></td>
     <td><input [(ngModel)]="singleKeg.pints" type="text" name="pints"></td>
-    <td><button type="button" name="button">look here</button></td>
+    <td><button (click)="removeKeg(singleKeg)" type="button" name="button">Remove</button></td>
+    <td><button (click)="serve(singleKeg)" type="button" name="button">Serve</button></td>
   </tr>
 </table>
 
-<p>Add a new keg</p>
-<input [(ngModel)]="name" type="text" name="name">
-<input [(ngModel)]="brand" type="text" name="brand">
-<input [(ngModel)]="price" type="text" name="price">
-<input [(ngModel)]="alcoholContent" type="text" name="alcoholContent">
-<button (click)=addKeg() type="button" name="button">Add me</button>
+<button (click)="toggleEdit()" type="button" name="button">Add a new keg</button>
+<div *ngIf="editingKeg">
+  <input [(ngModel)]="name" type="text" name="name">
+  <input [(ngModel)]="brand" type="text" name="brand">
+  <input [(ngModel)]="price" type="text" name="price">
+  <input [(ngModel)]="alcoholContent" type="text" name="alcoholContent">
+  <button (click)=addKeg() type="button" name="button">Add me</button>
+</div>
+<ul>
+  <p>Pints to refill:</p><div *ngFor="let singleKeg of kegs">  <li *ngIf="underTen(singleKeg)">{{singleKeg.name}}</li></div>
+</ul>
