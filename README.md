@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Specs
+
+-BOTH: List available kegs
+  -name
+  -brand
+  -price
+  -alcohol
+  -pints
+-EMPLOYEE: form for new kegs
+-EMPLOYEE: edit kegs properties after the fact
+-EMPLOYEE: display pints left in a keg (out of 124)
+-EMPLOYEE decrement available kegs
+-EMPLOYEE list low pints (less than 10)
+-PATRON: color code keg prices, style
+-PATRON: display strong beers diff than weak beers
