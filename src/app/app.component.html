@@ -34,7 +34,13 @@
     <p>Pints to refill:</p><div *ngFor="let singleKeg of kegs">  <li *ngIf="underTen(singleKeg)">{{singleKeg.name}}</li></div>
   </ul>
 </div>
-<div *ngIf="!employeeDisplay">
-  <p>hey</p>
 
+<div *ngIf="!employeeDisplay">
+    <div id="kegDisplay" *ngFor="let singleKeg of kegs | slice:carouselStart:carouselStart+3">
+      <h4>{{singleKeg.name}}</h4>
+      <p><em>~{{singleKeg.brand}}~</em></p>
+      <p>${{singleKeg.price}}</p>
+      <p>{{singleKeg.price}}% Alcohol</p>
+    </div>
 </div>
+<button (click)="turnCarousel()" type="button" name="button">Next</button>

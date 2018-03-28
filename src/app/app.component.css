@@ -9,3 +9,9 @@ input {
 #employee {
   float: right
 }
+
+#kegDisplay {
+  border: black solid 1px;
+  width: 140px;
+  text-align: center;
+}

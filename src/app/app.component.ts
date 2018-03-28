@@ -12,12 +12,20 @@ export class AppComponent {
   price: number;
   alcoholContent: number;
   editingKeg: boolean = false;
-  employeeDisplay: boolean = true;
-
+  employeeDisplay: boolean = false;
+  carouselStart: number = 0;
   singleKeg2: string = 'test'
   kegs: Keg[] = [
     new Keg('Original Flavor', 'YumCo', 5, 8),
     new Keg('Original Flavor2', 'YumCo2', 52, 82),
+    new Keg('Original Flavor3', 'YumCo2', 52, 82),
+    new Keg('Original Flavor4', 'YumCo2', 52, 82),
+    new Keg('Original Flavor5', 'YumCo2', 52, 82),
+    new Keg('Original Flavor6', 'YumCo2', 52, 82),
+    new Keg('Original Flavor7', 'YumCo2', 52, 82),
+    new Keg('Original Flavor8', 'YumCo2', 52, 82),
+    new Keg('Original Flavor9', 'YumCo2', 52, 82),
+    new Keg('Original Flavor10', 'YumCo2', 52, 82)
   ]
   addKeg() {
     this.kegs.push(new Keg(this.name,this.brand,this.price,this.alcoholContent));
@@ -46,5 +54,9 @@ export class AppComponent {
 
   employeeDisplaySet() {
     this.employeeDisplay = !this.employeeDisplay
+  }
+
+  turnCarousel() {
+    this.carouselStart = (this.carouselStart + 1) % this.kegs.length;
   }
 }
