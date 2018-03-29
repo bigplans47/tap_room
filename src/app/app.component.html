@@ -22,22 +22,24 @@
       <td><button (click)="serve(singleKeg)" type="button" name="button">Serve</button></td>
     </tr>
   </table>
-</div>
-
-  <div *ngIf="!employeeDisplay">
-      <div id="kegDisplay" *ngFor="let singleKeg of kegs | slice:carouselStart:carouselStart+3">
-        <h4>{{singleKeg.name}}</h4>
-        <p><em>~{{singleKeg.brand}}~</em></p>
-        <p>${{singleKeg.price}}</p>
-        <p>{{singleKeg.price}}% Alcohol</p>
-      </div>
-      <app-carousel></app-carousel>
-  </div>
+  <hr>
   <app-new-keg (clickSender)="addKeg($event)"></app-new-keg>
   <hr>
   <app-the-list [childKegs]="kegs"></app-the-list>
-  <hr>
-  <app-edit-keg [childKegs]="kegs" (clickSenderLog)="consoleLogEvent($event)"></app-edit-keg>
+</div>
+<div *ngIf="!employeeDisplay">
+    <div id="kegDisplay" *ngFor="let singleKeg of kegs | slice:carouselStart:carouselStart+3">
+      <h4>{{singleKeg.name}}</h4>
+      <p><em>~{{singleKeg.brand}}~</em></p>
+      <p>${{singleKeg.price}}</p>
+      <p>{{singleKeg.price}}% Alcohol</p>
+    </div>
+    <app-carousel></app-carousel>
+    <hr>
+    <app-edit-keg [childKegs]="kegs" (clickSenderLog)="consoleLogEvent($event)"></app-edit-keg>
+</div>
+
+
 
   <!-- <ul>
     <p>Pints to refill:</p><div *ngFor="let singleKeg of kegs">  <li *ngIf="underTen(singleKeg)">{{singleKeg.name}}</li></div>
