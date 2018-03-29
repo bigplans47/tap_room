@@ -1,0 +1,27 @@
+<div *ngFor="let selectedKeg of childKegs" >
+  <div *ngIf="!change">
+    <h3>{{selectedKeg.name}}</h3>
+    <h3>Edit the keg</h3>
+    <ul>
+      <li>{{selectedKeg.name}}</li>
+      <li>{{selectedKeg.brand}}</li>
+      <li>{{selectedKeg.alcoholContent}}</li>
+      <li>{{selectedKeg.pints}}</li>
+      <button (click)=changeKegInfo() type="button" name="button">Change info</button>
+    </ul>
+  </div>
+  <div *ngIf="change">
+    <br>
+    Name<input [(ngModel)]=selectedKeg.name type="text" name="name" >
+    <br>
+    Brand<input [(ngModel)]=selectedKeg.brand type="text" name="name" >
+    <br>
+    Price<input [(ngModel)]=selectedKeg.price type="text" name="name" >
+    <br>
+    Alcohol %<input [(ngModel)]=selectedKeg.alcoholContent type="text" name="name" >
+    <br>
+    Pints<input [(ngModel)]=selectedKeg.pints type="text" name="name" >
+    <br>
+    <button (click)=lockKegInfo(selectedKeg) type="button" name="button">Lock info</button>
+  </div>
+</div>

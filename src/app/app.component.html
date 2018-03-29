@@ -22,15 +22,22 @@
     </tr>
   </table>
 
-  <button (click)="toggleEdit()" type="button" name="button">Add a new keg</button>
+
+  <!-- <button (click)="toggleEdit()" type="button" name="button">Add a new keg</button>
   <div *ngIf="editingKeg">
     <input [(ngModel)]="name" type="text" name="name">
     <input [(ngModel)]="brand" type="text" name="brand">
     <input [(ngModel)]="price" type="text" name="price">
     <input [(ngModel)]="alcoholContent" type="text" name="alcoholContent">
     <button (click)=addKeg() type="button" name="button">Add me</button>
-  </div>
-  <ul>
+  </div> -->
+  <app-new-keg (clickSender)="addKeg($event)"></app-new-keg>
+  <hr>
+  <app-the-list [childKegs]="kegs"></app-the-list>
+  <hr>
+  <app-edit-keg [childKegs]="kegs" (clickSenderLog)="consoleLogEvent($event)"></app-edit-keg>
+
+  <!-- <ul>
     <p>Pints to refill:</p><div *ngFor="let singleKeg of kegs">  <li *ngIf="underTen(singleKeg)">{{singleKeg.name}}</li></div>
   </ul>
 </div>
@@ -44,3 +51,5 @@
     </div>
 </div>
 <button (click)="turnCarousel()" type="button" name="button">Next</button>
+
+<app-carousel></app-carousel> -->

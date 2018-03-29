@@ -7,12 +7,12 @@ import { Keg } from './models/keg.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name: string;
-  brand: string;
-  price: number;
-  alcoholContent: number;
+  // name: string;
+  // brand: string;
+  // price: number;
+  // alcoholContent: number;
   editingKeg: boolean = false;
-  employeeDisplay: boolean = false;
+  employeeDisplay: boolean = true;
   carouselStart: number = 0;
   singleKeg2: string = 'test'
   kegs: Keg[] = [
@@ -27,10 +27,24 @@ export class AppComponent {
     new Keg('Original Flavor9', 'YumCo2', 52, 82),
     new Keg('Original Flavor10', 'YumCo2', 52, 82)
   ]
-  addKeg() {
-    this.kegs.push(new Keg(this.name,this.brand,this.price,this.alcoholContent));
-    this.editingKeg = !this.editingKeg;
+
+  //method to take keg from component below, add to kegs
+  addKeg($event) {
+    this.kegs.push($event);
   }
+
+  consoleLogEvent($event) {
+    console.log($event[2]);
+    console.log('there was a change' $event);
+  }
+
+  changeKeg($event) {
+    this.kegs.find($event)
+  }
+
+
+
+
 
   removeKeg(kegToRemove) {
     this.kegs = this.kegs.filter(keg => keg != kegToRemove);
@@ -46,10 +60,6 @@ export class AppComponent {
     this.price = null;
     this.alcoholContent = null;
     this.editingKeg = !this.editingKeg;
-  }
-
-  underTen(kegToCheck) {
-    return kegToCheck.pints < 10;
   }
 
   employeeDisplaySet() {
