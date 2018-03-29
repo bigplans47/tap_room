@@ -15,7 +15,12 @@ input {
   width: 140px;
   text-align: center;
 }
-/*
-body {
-  background-color: yellow;
-}*/
+
+#intro {
+  border: #D2691E solid 1px;
+  padding: 20px;
+  margin: 20px;
+  background: #F4A460;
+  border-radius: 10px;
+  width: 250px;
+}

@@ -1,5 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
-
 body {
-  background-color: yellow;
+  background-image: url("./assets/kombucha.jpg");
+  /*background-repeat: no-repeat;*/
+  background-size: auto;
+}
+
+button {
+  background: #DAA520;
+  border-radius: 8px;
+  height: 30px;
+  border-color: #8B4513;
+}
+
+input {
+  height: 30px;
+  border-radius: 8px;
 }

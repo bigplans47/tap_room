@@ -1,16 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <button (click)="employeeDisplaySet()" type="button" name="button" id="patron">Toggle Patron or Employee View</button>
 <div *ngIf="employeeDisplay">
-  <h2>Here are some links to help you start: </h2>
-
+<div id="intro">Welcome to KombuchaVille </div>
   <table style="width:100%">
     <tr>
-      <th>Name</th>
-      <th>Brand</th>
-      <th>Price</th>
-      <th>Alcohol</th>
-      <th>Pints</th>
-      <th>Reorder</th>
+      <th align="left">Name</th>
+      <th align="left">Brand</th>
+      <th align="left">Price</th>
+      <th align="left">Alcohol</th>
+      <th align="left">Pints</th>
+      <th align="left">Reorder</th>
     </tr>
     <tr *ngFor="let singleKeg of kegs">
       <td><input [(ngModel)]="singleKeg.name" type="text" name="name"></td>
@@ -23,16 +22,17 @@
       <td><button (click)="serve(singleKeg)" type="button" name="button">Serve</button></td>
     </tr>
   </table>
+</div>
 
-
-  <!-- <button (click)="toggleEdit()" type="button" name="button">Add a new keg</button>
-  <div *ngIf="editingKeg">
-    <input [(ngModel)]="name" type="text" name="name">
-    <input [(ngModel)]="brand" type="text" name="brand">
-    <input [(ngModel)]="price" type="text" name="price">
-    <input [(ngModel)]="alcoholContent" type="text" name="alcoholContent">
-    <button (click)=addKeg() type="button" name="button">Add me</button>
-  </div> -->
+  <div *ngIf="!employeeDisplay">
+      <div id="kegDisplay" *ngFor="let singleKeg of kegs | slice:carouselStart:carouselStart+3">
+        <h4>{{singleKeg.name}}</h4>
+        <p><em>~{{singleKeg.brand}}~</em></p>
+        <p>${{singleKeg.price}}</p>
+        <p>{{singleKeg.price}}% Alcohol</p>
+      </div>
+      <app-carousel></app-carousel>
+  </div>
   <app-new-keg (clickSender)="addKeg($event)"></app-new-keg>
   <hr>
   <app-the-list [childKegs]="kegs"></app-the-list>
@@ -42,16 +42,7 @@
   <!-- <ul>
     <p>Pints to refill:</p><div *ngFor="let singleKeg of kegs">  <li *ngIf="underTen(singleKeg)">{{singleKeg.name}}</li></div>
   </ul>
-</div>
-
-<div *ngIf="!employeeDisplay">
-    <div id="kegDisplay" *ngFor="let singleKeg of kegs | slice:carouselStart:carouselStart+3">
-      <h4>{{singleKeg.name}}</h4>
-      <p><em>~{{singleKeg.brand}}~</em></p>
-      <p>${{singleKeg.price}}</p>
-      <p>{{singleKeg.price}}% Alcohol</p>
-    </div>
-</div>
-<button (click)="turnCarousel()" type="button" name="button">Next</button>
+</div> -->
+<!-- <button (click)="turnCarousel()" type="button" name="button">Next</button>
 
 <app-carousel></app-carousel> -->

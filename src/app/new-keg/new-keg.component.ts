@@ -24,5 +24,6 @@ export class NewKegComponent {
     let kegToAdd = new Keg(this.name,this.brand,this.price,this.alcoholContent);
     //send the new keg from this component to the root component (wrapped in $event);
     this.clickSender.emit(kegToAdd);
+    // this.clickSender.emit('nothing');
   }
 }

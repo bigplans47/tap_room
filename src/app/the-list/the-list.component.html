@@ -8,10 +8,10 @@
 <hr>
 <p>Reorder Kegs below</p>
 <ul>
-  <div *ngFor="let singleKeg of childKegs | needsRefilling">
-    <li>If checked will reorder {{singleKeg.name}}?
-      <input *ngIf="singleKeg.reorder" type="checkbox" checked (click)="toggleReorder(singleKeg, false)">
-      <input *ngIf="!singleKeg.reorder" type="checkbox" (click)="toggleReorder(singleKeg, true)">
+  <div *ngFor="let childKeg of childKegs | needsRefilling">
+    <li>If checked will reorder {{childKeg.name}}?
+      <input *ngIf="childKeg.reorder" type="checkbox" checked (click)="toggleReorder(childKeg, false)">
+      <input *ngIf="!childKeg.reorder" type="checkbox" (click)="toggleReorder(childKeg, true)">
     </li>
   </div>
 </ul>
