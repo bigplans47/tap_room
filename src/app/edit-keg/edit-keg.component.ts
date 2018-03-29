@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { Keg } from '../models/keg.model';
+import { Keg } from '../models/keg.model';
 
 @Component({
   selector: 'app-edit-keg',
   templateUrl: './edit-keg.component.html',
   styleUrls: ['./edit-keg.component.css']
 })
-export class EditKegComponent implements OnInit {
+export class EditKegComponent {
   @Input() childKegs: Keg[];
   @Output() clickSenderLog = new EventEmitter();
   change: boolean;
@@ -18,7 +18,8 @@ export class EditKegComponent implements OnInit {
   }
 
   lockKegInfo(selectedKeg) {
-    let lockedKegInfo = {1: selectedKeg, 2: 'passed in second property in event emitter'}
+    // let lockedKegInfo = {1: selectedKeg, 2: 'passed in second property in event emitter'}
+    let lockedKegInfo = [this.childKegs, 'hey there']
     // let practice [] = []
     this.clickSenderLog.emit(lockedKegInfo)
     this.change=false;

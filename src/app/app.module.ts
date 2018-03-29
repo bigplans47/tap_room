@@ -4,18 +4,20 @@ import { FormsModule }  from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NewKegComponent } from './new-keg/new-keg.component';
-import { NewKeg2Component } from './new-keg-2/new-keg-2.component';
 import { TheListComponent } from './the-list/the-list.component';
 import { EditKegComponent } from './edit-keg/edit-keg.component';
+import { NeedsRefillingPipe } from './needs-refilling.pipe';
+import { Under10Bucks } from './less-then-10-price.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     CarouselComponent,
     NewKegComponent,
-    NewKeg2Component,
     TheListComponent,
-    EditKegComponent
+    EditKegComponent,
+    NeedsRefillingPipe,
+    Under10Bucks
   ],
   imports: [
     BrowserModule,

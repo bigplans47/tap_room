@@ -10,6 +10,7 @@
       <th>Price</th>
       <th>Alcohol</th>
       <th>Pints</th>
+      <th>Reorder</th>
     </tr>
     <tr *ngFor="let singleKeg of kegs">
       <td><input [(ngModel)]="singleKeg.name" type="text" name="name"></td>
@@ -17,6 +18,7 @@
       <td><input [(ngModel)]="singleKeg.price" type="text" name="price"></td>
       <td><input [(ngModel)]="singleKeg.alcoholContent" type="text" name="alcoholContent"></td>
       <td><input [(ngModel)]="singleKeg.pints" type="text" name="pints"></td>
+      <td><input [(ngModel)]="singleKeg.reorder" type="text" name="pints"></td>
       <td><button (click)="removeKeg(singleKeg)" type="button" name="button">Remove</button></td>
       <td><button (click)="serve(singleKeg)" type="button" name="button">Serve</button></td>
     </tr>

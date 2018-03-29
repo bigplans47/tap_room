@@ -6,7 +6,7 @@ import { Keg } from '../models/keg.model';
   templateUrl: './new-keg.component.html',
   styleUrls: ['./new-keg.component.css']
 })
-export class NewKegComponent implements OnInit {
+export class NewKegComponent {
   @Output() clickSender = new EventEmitter();
   name: string;
   brand: string;
@@ -21,7 +21,7 @@ export class NewKegComponent implements OnInit {
   addButtonClicked() {
     console.log("add button clicked 1");
     //make a new keg from the input in this component
-    let kegToAdd = new Keg(this.name,this.brand,this.price,this.alcoholContent));
+    let kegToAdd = new Keg(this.name,this.brand,this.price,this.alcoholContent);
     //send the new keg from this component to the root component (wrapped in $event);
     this.clickSender.emit(kegToAdd);
   }

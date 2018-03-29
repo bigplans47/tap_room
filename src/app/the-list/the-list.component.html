@@ -1,6 +1,30 @@
+<p>Kegs that are low appear below, select reorder as needed</p>
+<!-- <ul>
+  <div *ngFor="let singleKeg of childKegs"> <li *ngIf="underTen(singleKeg)"> {{singleKeg.name}} <input type="checkbox" (click)="toggleDone(currentKeg, true)"> </li></div>
+</ul> -->
 <ul>
-  <div *ngFor="let singleKeg of childKegs"> <li *ngIf="underTen(singleKeg)"> {{singleKeg.name}}</li></div>
+  <div *ngFor="let singleKeg of childKegs | needsRefilling"> <li> {{singleKeg.name}} </li></div>
 </ul>
+<hr>
+<p>Reorder Kegs below</p>
+<ul>
+  <div *ngFor="let singleKeg of childKegs | needsRefilling">
+    <li>If checked will reorder {{singleKeg.name}}?
+      <input *ngIf="singleKeg.reorder" type="checkbox" checked (click)="toggleReorder(singleKeg, false)">
+      <input *ngIf="!singleKeg.reorder" type="checkbox" (click)="toggleReorder(singleKeg, true)">
+    </li>
+  </div>
+</ul>
+<hr>
+Price of Serving under 10 bucks below
+<ul>
+  <div *ngFor="let singleKeg of childKegs | lessThen10Bucks"> <li> {{singleKeg.name}}, {{singleKeg.price}} </li></div>
+</ul>
+<select>
+  <option value="seeAllKegs">All Kegs</option>
+  <option value="seeKegsToReorder">Kegs to Reorder</option>
+  <option value="seeKegsToNotReorder">Kegs to NOT Reorder</option>
+</select>
 <!-- <ul>
   <p>Pints to refill:</p><div *ngFor="let singleKeg of childKegs">  <li>{{singleKeg.name}}</li></div>
 </ul> -->

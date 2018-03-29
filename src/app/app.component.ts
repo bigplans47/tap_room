@@ -34,8 +34,8 @@ export class AppComponent {
   }
 
   consoleLogEvent($event) {
-    console.log($event[2]);
-    console.log('there was a change' $event);
+    console.log($event[0]);
+    console.log($event[1]);
   }
 
   changeKeg($event) {
@@ -55,10 +55,10 @@ export class AppComponent {
     // keg.pints = keg.pints -1;
   }
   toggleEdit() {
-    this.name = null;
-    this.brand = null;
-    this.price = null;
-    this.alcoholContent = null;
+    // this.name = null;
+    // this.brand = null;
+    // this.price = null;
+    // this.alcoholContent = null;
     this.editingKeg = !this.editingKeg;
   }
 
